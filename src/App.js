@@ -45,51 +45,81 @@ function App() {
   };
 
   useEffect(() => {
-    fetchRegularGifs();
     fetchTrendingGifs();
     fetchRandomGifs();
   }, []);
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    <SearchCards
-      regularLoading={regularLoading}
-      searchRegularGifs={searchRegularGifs}
-    />;
-  };
 
   const isRandomGifClicked = () => {
     setRandomGifClicked(true);
     fetchRandomGifs();
   };
 
-  return (
-    <>
-      <div className="container-fluid">
-        <div className="my-header">
-          <img src={GiphyLogo} alt="giphy-logo" className="giphy-logo" />
-          <button onClick={isRandomGifClicked} className="random-gif-button">
-            Random Gif
-          </button>
+  let isFormSubmitted = false;
+  function submitHandler(e) {
+    // console.log(isFormSubmitted);
+    e.preventDefault();
+    isFormSubmitted = true;
+    console.log(isFormSubmitted);
+  }
+
+  useEffect(() => {
+    fetchRegularGifs();
+  }, [isFormSubmitted]);
+
+  if (isFormSubmitted === false) {
+    console.log(isFormSubmitted)
+    return (
+      <>
+        <div className="container-fluid">
+          <div className="my-header">
+            <img src={GiphyLogo} alt="giphy-logo" className="giphy-logo" />
+            <button onClick={isRandomGifClicked} className="random-gif-button">
+              Random Gif
+            </button>
+          </div>
+          <form onSubmit={submitHandler} className="search-gif-form container">
+            <input
+              type="text"
+              onChange={(event) => setSearchWord(event.target.value)}
+              placeholder="Search all the GIFs"
+            />
+          </form>
         </div>
-        <form onSubmit={submitForm} className="search-gif-form container">
-          <input
-            type="text"
-            onChange={(event) => setSearchWord(event.target.value)}
-            placeholder="Search all the GIFs"
-          />
-        </form>
-      </div>
-      <GifCards
-        trendingGifs={trendingGifs}
-        randomGif={randomGif}
-        randomGifClicked={randomGifClicked}
-        trendingLoading={trendingLoading}
-        randomGifLoading={randomGifLoading}
-        fetchRegularGifs={fetchRegularGifs}
-      />
-    </>
-  );
+        <GifCards
+          trendingGifs={trendingGifs}
+          randomGif={randomGif}
+          randomGifClicked={randomGifClicked}
+          trendingLoading={trendingLoading}
+          randomGifLoading={randomGifLoading}
+          fetchRegularGifs={fetchRegularGifs}
+        />
+      </>
+    );
+  } else if (isFormSubmitted === true) {
+    return (
+      <>
+        <div className="container-fluid">
+          <div className="my-header">
+            <img src={GiphyLogo} alt="giphy-logo" className="giphy-logo" />
+            <button onClick={isRandomGifClicked} className="random-gif-button">
+              Random Gif
+            </button>
+          </div>
+          <form onSubmit={submitHandler} className="search-gif-form container">
+            <input
+              type="text"
+              onChange={(event) => setSearchWord(event.target.value)}
+              placeholder="Search all the GIFs"
+            />
+          </form>
+        </div>
+        <SearchCards
+          regularLoading={regularLoading}
+          searchRegularGifs={searchRegularGifs}
+        />
+      </>
+    );
+  }
 }
 
 export default App;

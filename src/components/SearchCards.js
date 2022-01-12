@@ -3,19 +3,20 @@ import React from "react";
 function SearchCards({ regularLoading, searchRegularGifs }) {
   if (regularLoading === false) {
     return (
-      <div className="container-fluid gifs-container">
-        {searchRegularGifs.data.map((e) => {
-          return (
-            <div key={e.id}>
-              <img
-                src={e.images.downsized_medium.url}
-                className="img-fluid"
-                alt="GIF"
-              />
-            </div>
-          );
-        })}
-      </div>
+      // <div className="container-fluid gifs-container">
+      //   {searchRegularGifs.data.map((e) => {
+      //     return (
+      //       <div key={e.id}>
+      //         <img
+      //           src={e.images.downsized_medium.url}
+      //           className="img-fluid"
+      //           alt="GIF"
+      //         />
+      //       </div>
+      //     );
+      //   })}
+      // </div>
+      <p>Hello world</p>
     );
   }
   //   );
