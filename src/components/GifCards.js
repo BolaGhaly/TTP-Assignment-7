@@ -18,35 +18,45 @@ function GifCards({
           />
         </div>
 
-        <div className="container-fluid gifs-container">
-          {trendingGifs.data.map((e) => {
-            return (
-              <div key={e.id}>
-                <img
-                  src={e.images.downsized_medium.url}
-                  alt="GIF"
-                  className="img-fluid"
-                />
-              </div>
-            );
-          })}
+        <div className="container gifs-container mt-4">
+          <div className="row d-flex justify-content-center">
+            {trendingGifs.data.map((e) => {
+              return (
+                <div
+                  className="col-lg-6 col-10 d-flex justify-content-center "
+                  key={e.id}
+                >
+                  <img
+                    src={e.images.downsized_medium.url}
+                    className="img-fluid"
+                    alt="GIF"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </>
     );
   } else if (trendingLoading === false && randomGifClicked === false) {
     return (
-      <div className="container-fluid gifs-container">
-        {trendingGifs.data.map((e) => {
-          return (
-            <div key={e.id}>
-              <img
-                src={e.images.downsized_medium.url}
-                className="img-fluid"
-                alt="GIF"
-              />
-            </div>
-          );
-        })}
+      <div className="container gifs-container mt-4">
+        <div className="row d-flex justify-content-center">
+          {trendingGifs.data.map((e) => {
+            return (
+              <div
+                className="col-md-6 col-12 d-flex justify-content-center"
+                key={e.id}
+              >
+                <img
+                  src={e.images.downsized_medium.url}
+                  className="img-fluid"
+                  alt="GIF"
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   } else if (trendingLoading === true || randomGifLoading === true) {

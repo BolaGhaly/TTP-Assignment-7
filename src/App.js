@@ -11,10 +11,10 @@ function App() {
   const [randomGif, setRandomGif] = useState([]);
   const [searchWord, setSearchWord] = useState(null);
   const [randomGifClicked, setRandomGifClicked] = useState(false);
-
   const [regularLoading, setRegularLoading] = useState(true);
   const [trendingLoading, setTrendingLoading] = useState(true);
   const [randomGifLoading, setRandomGifLoading] = useState(true);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const fetchRegularGifs = async () => {
     setRegularLoading(true);
@@ -54,20 +54,16 @@ function App() {
     fetchRandomGifs();
   };
 
-  let isFormSubmitted = false;
   function submitHandler(e) {
-    // console.log(isFormSubmitted);
     e.preventDefault();
-    isFormSubmitted = true;
-    console.log(isFormSubmitted);
+    setIsFormSubmitted(true);
   }
 
   useEffect(() => {
     fetchRegularGifs();
-  }, [isFormSubmitted]);
+  }, [isFormSubmitted, searchWord]);
 
   if (isFormSubmitted === false) {
-    console.log(isFormSubmitted)
     return (
       <>
         <div className="container-fluid">
@@ -119,6 +115,8 @@ function App() {
         />
       </>
     );
+  } else {
+    return <></>;
   }
 }
 
