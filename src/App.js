@@ -96,10 +96,7 @@ function App() {
       <>
         <div className="container-fluid">
           <div className="my-header">
-            <img src={GiphyLogo} alt="giphy-logo" className="giphy-logo" />
-            <button onClick={isRandomGifClicked} className="random-gif-button">
-              Random Gif
-            </button>
+            <img src={GiphyLogo} alt="giphy-logo" className="giphy-logo pb-4" />
           </div>
           <form onSubmit={submitHandler} className="search-gif-form container">
             <input
