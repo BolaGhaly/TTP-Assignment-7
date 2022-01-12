@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: whitesmoke;
+  font-family: "Poppins", sans-serif;
+}
+/*------------------------------- Bootstrap ---------------------------*/
+
+.container-fluid {
+  padding: 0;
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+  /* height: 50% !important;
+  width: 50% !important; */
+}
+.card-img-top {
+  border-radius: 0;
+}
+
+.btn {
+  border-radius: 0;
+}
+/*------------------------------- Main Page ---------------------------*/
+.mb-120 {
+  margin-bottom: 120px;
+}
+
+.loading-p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.my-header {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.giphy-logo {
+  margin-top: 20px;
+  color: whitesmoke;
+  width: 200px;
+}
+
+.random-gif-button {
+  margin: 20px 0;
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: #121212;
+  font-size: 1.125rem;
+  color: whitesmoke;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.search-gif-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-gif-form input {
+  margin: 20px 0;
+  width: 90%;
+  overflow-x: scroll;
+  padding: 15px 5px 15px 20px !important;
+}
+
+.gif-link-button {
+  font-size: 1.2rem;
+  padding: 10px 0;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-shadow: black 0px 0px 5px;
+  color: whitesmoke !important;
+  background-color: rgb(30, 79, 92);
+}
+
+.gifs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gifs-container div {
+  padding-bottom: 40px;
+}
